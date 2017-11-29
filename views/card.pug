@@ -1,0 +1,49 @@
+extends layout.pug
+block content
+  //- section#content
+  //-     h2= text
+  //-     if hint
+  //-       p
+  //-         i Hint: #{hint}
+  //-     //- still think the lgoic for the links belongs here, not in the routes
+  //-     //- seems like a better separation to handle what displays here
+  //-     //- not in the logic of the routes
+  //-     //- just send it all, then adjust
+  //-     p
+  //-       a(href=`${id}?side=${cardSide}`) #{cardSideDisplay}
+  //-     p
+  //-       a(href='/cards') Next Card
+
+  section.flashcards
+      if cardSideDisplay === "Question"
+        div(class=`card card-answer`)
+          .card-header
+          h1.card-title Answer
+          #content
+            h2 #{text}
+            if hint
+              p#hint
+                i Hint: #{hint}
+          .card-flip-wrap
+            a(href=`${id}?side=${cardSide}`)
+              img.card-flip(src='/static/img/flip.svg')
+          .card-next
+            a(href='/cards')
+              img(src='/static/img/next.svg')
+
+      else
+        div(class=`card card-question`)
+          .card-header
+          h1.card-title Question
+          #content
+            h2 #{text}
+            if hint
+              p#hint
+                i Hint: #{hint}
+          .card-flip-wrap
+            a(href=`${id}?side=${cardSide}`)
+              img.card-flip(src='/static/img/flip.svg')
+          .card-next
+            a(href='/cards')
+              img(src='/static/img/next.svg')
+        //- /*script(src='app.js')*/
