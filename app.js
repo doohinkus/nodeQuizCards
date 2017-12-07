@@ -4,8 +4,8 @@ const cookieParser = require('cookie-parser');
 const app = express();
 // creates server must use when deploying on heroku
 
-// set port deployment and localhost
-const port = process.env.PORT || 3013;
+// set port deployment and localhost--some weird reason 3000 doesn't work locally
+const port = process.env.PORT || 5000;
 
 
 // functions are fired in the order you write them
