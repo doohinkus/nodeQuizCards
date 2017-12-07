@@ -2,10 +2,13 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const app = express();
+// creates server must use when deploying on heroku
+const server = require('http').createServer(app);
 
 // set port deployment and localhost
 const port = process.env.PORT || 3000;
-const hostname = "127.0.0.1"
+const hostname = "127.0.0.1";
+
 
 // functions are fired in the order you write them
 app.set('view engine', 'pug');
@@ -59,3 +62,4 @@ app.use((err, req, res, next)=>{
 app.listen(port, hostname, ()=>{
   console.log("serving on port 3000")
 });
+// http.createServer();
