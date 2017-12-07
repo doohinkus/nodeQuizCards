@@ -2,6 +2,10 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 const app = express();
+
+// set port deployment and localhost
+const port = process.env.PORT || 3000;
+
 // functions are fired in the order you write them
 app.set('view engine', 'pug');
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -51,6 +55,6 @@ app.use((err, req, res, next)=>{
   res.render('error');
 });
 
-app.listen(3000, ()=>{
+app.listen(port, ()=>{
   console.log("serving on port 3000")
 });
