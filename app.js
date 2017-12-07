@@ -5,7 +5,7 @@ const app = express();
 // creates server must use when deploying on heroku
 
 // set port deployment and localhost
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 3013;
 
 
 // functions are fired in the order you write them
@@ -58,6 +58,6 @@ app.use((err, req, res, next)=>{
 });
 
 app.listen(port, ()=>{
-  console.log("serving on port 3000")
+  console.log("serving on port " + port)
 });
 // http.createServer();
